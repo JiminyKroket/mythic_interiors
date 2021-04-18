@@ -20,7 +20,7 @@ function TeleportToInterior(x, y, z, h)
 
         SetEntityCoords(PlayerPedId(), x, y, z, 0, 0, 0, false)
         SetEntityHeading(PlayerPedId(), h)
-
+        while not HasCollisionLoadedAroundEntity(PlayerPedId()) do Citizen.Wait(100) end
         Citizen.Wait(100)
 
         DoScreenFadeIn(1000)
