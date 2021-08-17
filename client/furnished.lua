@@ -1,5 +1,9 @@
 -- Thanks Stroudy <3
 function CreateHotelFurnished(spawn)
+	local hashList = {'playerhouse_hotel',"v_49_motelmp_stuff","v_49_motelmp_bed","v_49_motelmp_clothes","v_49_motelmp_winframe","v_49_motelmp_glass","v_49_motelmp_curtains",
+	"v_49_motelmp_screen","v_res_fa_trainer02r","v_res_fa_trainer02l","prop_sink_06","prop_chair_04a","prop_chair_04a","prop_kettle","Prop_TV_Cabinet_03","prop_tv_06","Prop_LD_Toilet_01",
+	"Prop_Game_Clock_02","v_res_j_phone","v_ret_fh_ironbrd","prop_iron_01","V_Ret_TA_Mug","V_Ret_TA_Mug","v_res_binder",}
+	for i = 1,#hashList do while not HasModelLoaded(GetHashKey(hashList[i])) do RequestModel(GetHashKey(hashList[i])); Wait(0); end; end
 	local building = CreateObject(GetHashKey('playerhouse_hotel'),generator.x - 0.7,generator.y-0.4,generator.z-1.42,false,false,false)
 
 	FreezeEntityPosition(building,true)
@@ -49,6 +53,7 @@ function CreateHotelFurnished(spawn)
 	SetEntityHeading(iron,GetEntityHeading(iron)+230)
 	SetEntityHeading(mug1,GetEntityHeading(mug1)+20)
 	SetEntityHeading(mug2,GetEntityHeading(mug2)+230)
+	for i = 1,#hashList do SetModelAsNoLongerNeeded(GetHashKey(hashList[i])) end
 end
 
 -- Thanks Stroudy <3
